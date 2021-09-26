@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     body {
@@ -12,7 +18,18 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: rgb(39, 39, 39);
+      background: #ff416c; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #ff416c,
+        #ff4b2b
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #ff416c,
+        #ff4b2b
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      font-family: "Dosis", sans-serif;
     }
     .container {
       max-width: 1200px;
@@ -20,7 +37,14 @@
       background-color: white;
       padding: 50px;
       border-radius: 5px;
-      height: 500px;
+      min-height: 500px;
+      min-width: 450px;
+      box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        100px 100px 80px rgba(0, 0, 0, 0.07);
     }
     .d-flex {
       display: flex;
@@ -29,26 +53,59 @@
     button,
     input {
       padding: 10px 15px;
+      width: 50%;
     }
     button {
       margin-left: 10px;
+      border: none;
+      border-radius: 5px;
+      background: salmon;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: rgb(253, 174, 165);
+    }
+    ul {
+      padding: 0;
     }
     ul li {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-top: 10px;
+      box-shadow: 0px 2px 1.1px -4px rgba(0, 0, 0, 0.032),
+        0px 3.3px 2.7px -4px rgba(0, 0, 0, 0.043),
+        0px 3.9px 5px -4px rgba(0, 0, 0, 0.047),
+        0px 4.3px 8.9px -4px rgba(0, 0, 0, 0.051),
+        0px 4.6px 16.7px -4px rgba(0, 0, 0, 0.054),
+        0px 5px 40px -4px rgba(0, 0, 0, 0.07);
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 25px;
     }
     ul li span {
       padding: 5px;
-      background-color: rgb(252, 118, 118);
+      background-color: rgb(250, 206, 206);
       border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .form-area {
+      display: flex;
+      justify-content: space-between;
     }
   </style>
 
   <body>
     <div class="container d-flex">
-      <div>
-        <input id="input" type="text" /><button id="submitTodo">Save</button>
+      <h1>Never Forget what to do</h1>
+      <div class="form-area">
+        <input
+          placeholder="what you need to do"
+          id="input"
+          type="text"
+        /><button id="submitTodo">Save</button>
       </div>
       <ul id="listItems">
         <!-- <li>ASD <span>delete</span></li> -->
