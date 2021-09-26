@@ -72,7 +72,6 @@
       }
       const liToAppend = `<li>${todoText}<span>delete</span></li>`;
       listItemsElement.innerHTML += liToAppend;
-      localStorage.setItem(todoText, todoText);
       toDoInputElement.value = "";
 
       deleteElements = document.querySelectorAll("#listItems span");

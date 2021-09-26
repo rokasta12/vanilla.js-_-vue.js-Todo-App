@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div >
     <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgb(39, 39, 39);
+      color: white;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 50px;
+      border-radius: 5px;
+      min-height: 500px;
+    }
+    .d-flex {
+      display: flex;
+      flex-direction: column;
+    }
+    button,
+    input {
+      padding: 10px 15px;
+    }
+    button {
+      margin-left: 10px;
+    }
+    ul li {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      color:black
+    }
+    ul li span.delete {
+      padding: 5px;
+      background-color: rgb(252, 118, 118);
+      border-radius: 5px;
+    }
 </style>
