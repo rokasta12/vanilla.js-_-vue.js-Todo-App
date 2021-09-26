@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgb(39, 39, 39);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 50px;
+      border-radius: 5px;
+      height: 500px;
+    }
+    .d-flex {
+      display: flex;
+      flex-direction: column;
+    }
+    button,
+    input {
+      padding: 10px 15px;
+    }
+    button {
+      margin-left: 10px;
+    }
+    ul li {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    ul li span {
+      padding: 5px;
+      background-color: rgb(252, 118, 118);
+      border-radius: 5px;
+    }
+  </style>
+
+  <body>
+    <div class="container d-flex">
+      <div>
+        <input id="input" type="text" /><button id="submitTodo">Save</button>
+      </div>
+      <ul id="listItems">
+        <!-- <li>ASD <span>delete</span></li> -->
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    // Select Elements From DOM
+    const toDoInputElement = document.querySelector("#input");
+    const submitToDoInputElement = document.querySelector("#submitTodo");
+    const listItemsElement = document.querySelector("#listItems");
+
+    let deleteElements = document.querySelectorAll(" span");
+
+    // Add event listeners.
+    submitToDoInputElement.addEventListener("click", function (event) {
+      const todoText = toDoInputElement.value;
+      if (!todoText) {
+        return;
+      }
+      const liToAppend = `<li>${todoText}<span>delete</span></li>`;
+      listItemsElement.innerHTML += liToAppend;
+      localStorage.setItem(todoText, todoText);
+      toDoInputElement.value = "";
+
+      deleteElements = document.querySelectorAll("#listItems span");
+      deleteElements.forEach((element) => {
+        element.addEventListener("click", function (event) {
+          const deleteElement = event.target;
+          const liElementToRemove = deleteElement.parentElement;
+          liElementToRemove.remove();
+        });
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        submitToDoInputElement.click();
+      }
+    });
+  </script>
+</html>
